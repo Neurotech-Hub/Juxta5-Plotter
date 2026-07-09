@@ -1,5 +1,7 @@
 # Juxta Plotter
 
+**Use the tool: [https://neurotech-hub.github.io/Juxta5-Plotter/](https://neurotech-hub.github.io/Juxta5-Plotter/)**
+
 A lightweight, client-side plotting utility for Juxta wireless wearable device data. Drop the daily CSV exports from a device into the page and get interactive plots, a system event table, and a shareable text summary. Everything runs in the browser — no server, no data leaves your machine.
 
 ## Supported files
