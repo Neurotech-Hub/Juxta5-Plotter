@@ -15,12 +15,13 @@
 
   function renderAll() {
     if (!currentData) return;
-    renderSummary(currentData, currentTz);
-    renderAllPlots(currentData, currentTz);
-    renderEventsTable(currentData.jxs, currentTz);
+    // Unhide before rendering so Plotly can measure the container width
     setHidden("summary-section", false);
     setHidden("plots-section", false);
     setHidden("events-section", false);
+    renderSummary(currentData, currentTz);
+    renderAllPlots(currentData, currentTz);
+    renderEventsTable(currentData.jxs, currentTz);
   }
 
   function showWarnings(messages) {
