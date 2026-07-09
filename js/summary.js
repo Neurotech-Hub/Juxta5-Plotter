@@ -13,8 +13,8 @@ function buildSummaryText(data, tz) {
 
   lines.push(`Device: ${deviceId || "unknown"}`);
 
-  // Duration across all data types
-  const allUnix = [...jxv, ...jxb, ...jxs].map((r) => r.unix);
+  // Duration matches the plots' x-axis timeline (JXV + JXB only)
+  const allUnix = [...jxv, ...jxb].map((r) => r.unix);
   if (allUnix.length > 0) {
     const start = Math.min(...allUnix);
     const end = Math.max(...allUnix);
