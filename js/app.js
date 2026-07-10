@@ -94,4 +94,14 @@
   });
 
   initCopyButton(() => ({ data: currentData, tz: currentTz }));
+
+  // Re-size Plotly charts to match print layout width
+  function resizePlots() {
+    if (!currentData) return;
+    document.querySelectorAll(".plot").forEach((el) => {
+      if (el.data) Plotly.Plots.resize(el);
+    });
+  }
+  window.addEventListener("beforeprint", resizePlots);
+  window.addEventListener("afterprint", resizePlots);
 })();

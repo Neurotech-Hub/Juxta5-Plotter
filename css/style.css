@@ -202,3 +202,134 @@ footer {
   color: var(--muted);
   font-size: 0.8rem;
 }
+
+/* ── Print layout ─────────────────────────────────────────────── */
+
+@media print {
+  :root {
+    --bg: #ffffff;
+    --card-bg: #ffffff;
+    --border: #cccccc;
+  }
+
+  @page {
+    margin: 1.2cm 1.5cm;
+    size: letter portrait;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  body {
+    background: #ffffff;
+    font-size: 10pt;
+    line-height: 1.4;
+  }
+
+  /* Hide interactive / upload UI */
+  #upload-section,
+  .tz-control,
+  #copy-summary-btn,
+  footer {
+    display: none !important;
+  }
+
+  header,
+  main,
+  footer {
+    max-width: none;
+    width: 100%;
+  }
+
+  header {
+    padding: 0 0 10pt;
+    border-bottom: 1pt solid var(--border);
+    margin-bottom: 12pt;
+  }
+
+  header h1 {
+    font-size: 16pt;
+  }
+
+  main {
+    padding: 0;
+  }
+
+  section {
+    margin-bottom: 0;
+  }
+
+  /* Keep each content block intact on the page */
+  .card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    margin: 0 0 18pt;
+    box-shadow: none;
+  }
+
+  .card h2 {
+    font-size: 11pt;
+    margin: 0 0 6pt;
+    padding-bottom: 4pt;
+    border-bottom: 0.5pt solid var(--border);
+  }
+
+  .card-header {
+    margin-bottom: 6pt;
+  }
+
+  #summary-text {
+    font-size: 9pt;
+    background: none;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    white-space: pre-wrap;
+  }
+
+  .plot,
+  .js-plotly-plot,
+  .plotly-graph-div {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    width: 100% !important;
+    overflow: visible !important;
+  }
+
+  .plot svg {
+    max-width: 100%;
+  }
+
+  table.events {
+    font-size: 8.5pt;
+  }
+
+  table.events th,
+  table.events td {
+    padding: 3pt 6pt;
+    white-space: normal;
+  }
+
+  table.events tr {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  table.events thead {
+    display: table-header-group;
+  }
+
+  table.events tbody tr:hover {
+    background: none;
+  }
+
+  /* Don't print empty sections */
+  section[hidden] {
+    display: none !important;
+  }
+}
